@@ -2,6 +2,7 @@
   "name": "connect4client",
   "version": "0.1.0",
   "private": true,
+  "homepage" : "http://localhost/Users/salam/workspace/connect4client/build/",
   "dependencies": {
     "jquery": "^3.2.1",
     "react": "^15.6.1",

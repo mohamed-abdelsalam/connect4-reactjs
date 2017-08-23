@@ -1,0 +1,9 @@
+
+.column {
+  display: grid;
+  grid-template-columns: 50px 50px 50px 50px 50px 50px 50px;
+  grid-column-gap: 2px;
+  padding: 1%;
+  background-color: #fff;
+  color: #444;
+}

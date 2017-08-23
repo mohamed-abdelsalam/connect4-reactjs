@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Cell from './components/Cell';
+import Grid from './components/Grid.jsx';
 
-ReactDOM.render(<Cell />, document.getElementById('root'));
+
+ReactDOM.render(<Grid />, document.getElementById('root'));

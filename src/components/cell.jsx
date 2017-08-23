@@ -1,11 +1,29 @@
 import React from 'react';
 import './Cell.css';
-import $ from 'jquery';
 
-class Cell extends React.Component {
+export default class Cell extends React.Component {
+
+  constructor() {
+    super();
+    this.state = {
+      sign: '0',
+    };
+  }
+
   render() {
-    {$.post("http://localhost:3001/start_new_game/start", {name: "Mohamed", type: "car"});}
-    return (<h1> hello </h1>);
+    let cellStyle;
+    if (this.props.name === '0') {
+      cellStyle = {
+        background: '#fAf'
+      };
+    } else {
+      cellStyle = {
+        background: '#f00'
+      };
+    }
+    return (<div className='cell'>
+      <div className='circle' style={cellStyle}>
+      </div>
+    </div>);
   }
 }
-export default Cell;
