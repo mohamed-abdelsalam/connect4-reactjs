@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Grid from './components/Grid.jsx';
+import Game from './components/Game.jsx';
 
 
-ReactDOM.render(<Grid />, document.getElementById('root'));
+ReactDOM.render(<Game />, document.getElementById('root'));

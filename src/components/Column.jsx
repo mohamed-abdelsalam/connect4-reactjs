@@ -4,7 +4,7 @@ import Cell from './Cell.jsx';
 export default class Column extends React.Component {
   render() {
     return (
-      <div onClick={() => this.props.onclick(this.props.colNum)}>
+      <div onClick={() => this.props.colOnClick(this.props.colNum)}>
         <Cell value={this.props.colMap[0]}/>
         <Cell value={this.props.colMap[1]}/>
         <Cell value={this.props.colMap[2]}/>
