@@ -1,21 +1,39 @@
 import React from 'react';
-import Column from './Column.jsx';
-import './Grid.css';
+import '../style/Grid.css';
+import Cell from './Cell.jsx';
+
+function Column(props) {
+
+  return (
+    <div onClick={() => props.colOnClick(props.colNum)}>
+      <Cell value={props.colMap[0]}/>
+      <Cell value={props.colMap[1]}/>
+      <Cell value={props.colMap[2]}/>
+      <Cell value={props.colMap[3]}/>
+      <Cell value={props.colMap[4]}/>
+      <Cell value={props.colMap[5]}/>
+      <Cell value={props.colMap[6]}/>
+      <Cell value={props.colMap[7]}/>
+    </div>);
+}
 
 export default class Grid extends React.Component {
-  
+
+  renderColumn = (colNum, colMap) => {
+    return (<Column colNum={colNum}
+      colOnClick={(i) => this.props.girdOnClick(i)} colMap={colMap}/>);
+  }
+
   render() {
+
     return (<div className='grid'>
-      <Column colNum={0} colOnClick={(i) => this.props.girdOnClick(i)} colMap={this.props.board[0]}/>
-      <Column colNum={1} colOnClick={(i) => this.props.girdOnClick(i)} colMap={this.props.board[1]}/>
-      <Column colNum={2} colOnClick={(i) => this.props.girdOnClick(i)} colMap={this.props.board[2]}/>
-      <Column colNum={3} colOnClick={(i) => this.props.girdOnClick(i)} colMap={this.props.board[3]}/>
-      <Column colNum={4} colOnClick={(i) => this.props.girdOnClick(i)} colMap={this.props.board[4]}/>
-      <Column colNum={5} colOnClick={(i) => this.props.girdOnClick(i)} colMap={this.props.board[5]}/>
-      <Column colNum={6} colOnClick={(i) => this.props.girdOnClick(i)} colMap={this.props.board[6]}/>
+      {this.renderColumn(0, this.props.board[0])}
+      {this.renderColumn(1, this.props.board[1])}
+      {this.renderColumn(2, this.props.board[2])}
+      {this.renderColumn(3, this.props.board[3])}
+      {this.renderColumn(4, this.props.board[4])}
+      {this.renderColumn(5, this.props.board[5])}
+      {this.renderColumn(6, this.props.board[6])}
     </div>);
   }
 }
-
-// import $ from 'jquery';
-  //   // {$.post("http://localhost:3001/start_new_game/start", {name: "Mohamed", type: "car"});}

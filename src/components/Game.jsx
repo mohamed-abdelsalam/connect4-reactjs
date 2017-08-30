@@ -1,6 +1,6 @@
 import React from 'react';
 import Grid from './Grid.jsx';
-import { createEmptyBoard } from '../Util/GameBoardUtil.js';
+import { createEmptyBoard } from '../util/GameBoardUtil.js';
 
 export default class Game extends React.Component {
 
@@ -94,25 +94,20 @@ export default class Game extends React.Component {
 
   playerWon = (playerSymbol) => {
     var board = createEmptyBoard();
-    var currentPlayer = '0';
     var gameRound = this.state.gameRound + 1;
     var winners;
     if (gameRound === 3) {
       winners = ['0', '0', '0'];
+      gameRound = 0;
     } else {
       winners = this.state.winners.slice();
       winners[this.state.gameRound] = playerSymbol;
     }
     this.setState({
       board : board,
-      currentPlayer : currentPlayer,
+      currentPlayer :  '0',
       winners : winners,
       gameRound : gameRound});
-  }
-
-  wait = (waitTime) => {
-    var startTime = new Date().getTime();
-    while ((new Date().getTime()) - startTime < waitTime);
   }
 
   roundResults = (roundNumber) => {
@@ -121,6 +116,7 @@ export default class Game extends React.Component {
         {(this.state.winners[roundNumber] === '1' ? ' Red' : ' Blue')}
       </h4>);
   }
+
   renderGameInfo = () => {
     return (<div>
       <h3> Round {this.state.gameRound + 1} </h3>
